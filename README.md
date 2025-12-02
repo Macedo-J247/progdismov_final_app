@@ -10,10 +10,12 @@
 
 > * Wadson Tardelle Dias de Lima
 >   - Responsável pelos models
-> <br/>
+> <br>
+>
 > * Leonardo Vitorio da Silva
 >   - Responsável pelas views
-> <br/>
+> <br>
+>
 > * José Macêdo Dos Santos Junior
 >   - Responsável pelos controllers
 
