@@ -1,3 +1,4 @@
+import 'package:final_app/user_provider.dart';
 import 'package:flutter/material.dart';
 
 
@@ -16,12 +17,15 @@ class MainApp extends StatelessWidget
 	@override
 	Widget build(BuildContext context)
 	{
-		return const MaterialApp(
-			home: Scaffold(
-				body: Center(
-					child: Text('Hello World!'),
-				),  // Center
-			),  // Scaffold
-		);  // MaterialApp
+		return UserProvider(
+          child: const MaterialApp(
+            home: Scaffold(
+              body: Center(
+                child: Text('Hello World!'),
+              ),  // Center
+            ),  // Scaffold
+                routes: {},
+          ),
+        );  // MaterialApp
 	}
 }
