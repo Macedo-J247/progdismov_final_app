@@ -8,6 +8,8 @@ class UserProvider extends InheritedWidget {
   final Widget child;
   // Lista de usuários armazenada no provedor
   List<User> users = [];
+  User? userSelected;
+  int? indexUser;
 
   // Construtor que recebe o filho
   UserProvider({required this.child}) : super(child: child);

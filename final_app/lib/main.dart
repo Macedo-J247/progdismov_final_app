@@ -1,4 +1,5 @@
 import 'package:final_app/user_form.dart';
+import 'package:final_app/user_list.dart';
 import 'package:final_app/user_provider.dart';
 import 'package:flutter/material.dart';
 
@@ -23,6 +24,7 @@ class MainApp extends StatelessWidget
           home: UserForm(),
             routes: {
               "/create": (_) => UserForm(),
+              "/list": (_) => UserList(),
               //lista de  usuarios
             },
        ),

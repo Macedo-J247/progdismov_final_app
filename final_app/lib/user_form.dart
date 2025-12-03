@@ -12,6 +12,8 @@ class UserForm extends StatefulWidget {
 }
 
 class _UserFormState extends State<UserForm> {
+
+  String title = "Criar Usuário";
   // Controladores para os campos de texto
   TextEditingController controllerName = TextEditingController();
   TextEditingController controlleremail = TextEditingController();
@@ -21,23 +23,67 @@ class _UserFormState extends State<UserForm> {
   Widget build(BuildContext context) {
     void save() {
       // Obtém o UserProvider do contexto (gerenciador de estado)
-      UserProvider userProvider = UserProvider.of(context) as UserProvider;
+      UserProvider userProvider = UserProvider.of(context) as 
+      UserProvider;
+
+      int? index;
+
+      if (userProvider.indexUser != null) {
+        index = userProvider.indexUser;
+        controllerName.text = userProvider.userSelected!.name;
+        controlleremail.text = userProvider.userSelected!.email;
+        controllerPassword.text = userProvider.userSelected!.password;
+
+        setState(() {
+          this.title = "Editar Usuário";
+        });
+      }
+      
       //instancia da classe user um novo usuario
       User user = User(
         name: controllerName.text,
         email: controlleremail.text,
         password: controllerPassword.text,
       );
-      //salva um novo usuario na lista
-      userProvider.users.insert(0, user);
-      // busca o usuario salvo
-      print(userProvider.users[0].name);
+      if (index != null) {
+        userProvider.users[index] = user;
+      //editar
 
-      //navegar para lista de usuarios
+      } else {
+      int usersLength = userProvider.users.length;
+      //print('Quantidade de usuarios antes de salvar: $usersLength');
+
+      //salva um novo usuario na lista
+      userProvider.users.insert(usersLength, user);
+      // busca o usuario salvo
+      //print(userProvider.users[0].name);
+
     }
+      //navegar para lista de usuarios
+      Navigator.popAndPushNamed(context, '/list');
+      }
 
     return Scaffold(
-      appBar: AppBar(title: Text('Create User')),
+      appBar: AppBar(
+        title: Text(this.title),
+        actions: [
+          Container(
+            child: TextButton(
+              child: Text('Lista de Usuários',),
+              onPressed: () {
+                Navigator.popAndPushNamed(context, "/list");
+              },
+              ),
+              decoration: BoxDecoration(
+                color: Colors.white,
+                borderRadius: BorderRadius.all(Radius.circular(8))
+              ),
+              margin: EdgeInsets.all(8),
+
+          )
+        ],
+        ),
+      
       body: Center(
         child: Column(
           children: [
