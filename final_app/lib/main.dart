@@ -1,3 +1,4 @@
+import 'package:final_app/user_form.dart';
 import 'package:final_app/user_provider.dart';
 import 'package:flutter/material.dart';
 
@@ -18,14 +19,13 @@ class MainApp extends StatelessWidget
 	Widget build(BuildContext context)
 	{
 		return UserProvider(
-          child: const MaterialApp(
-            home: Scaffold(
-              body: Center(
-                child: Text('Hello World!'),
-              ),  // Center
-            ),  // Scaffold
-                routes: {},
-          ),
+       child: MaterialApp(
+          home: UserForm(),
+            routes: {
+              "/create": (_) => UserForm(),
+              //lista de  usuarios
+            },
+       ),
         );  // MaterialApp
 	}
 }
