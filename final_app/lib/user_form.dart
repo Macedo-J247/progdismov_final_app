@@ -1,7 +1,7 @@
 import 'package:final_app/field_form.dart';
 import 'package:final_app/user_provider.dart';
 import 'package:flutter/material.dart';
-import 'user.dart';
+import 'model/user.dart';
 
 
 class UserForm extends StatefulWidget

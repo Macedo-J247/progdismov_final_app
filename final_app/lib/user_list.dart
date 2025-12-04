@@ -1,4 +1,4 @@
-import 'package:final_app/user.dart';
+import 'package:final_app/model/user.dart';
 import 'package:final_app/user_provider.dart';
 import 'package:flutter/material.dart';
 
