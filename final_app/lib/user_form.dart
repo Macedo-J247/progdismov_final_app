@@ -1,19 +1,22 @@
 import 'package:final_app/field_form.dart';
 import 'package:final_app/user_provider.dart';
 import 'package:flutter/material.dart';
-
 import 'user.dart';
 
-class UserForm extends StatefulWidget {
+
+class UserForm extends StatefulWidget
+{
   const UserForm({super.key});
 
   @override
   State<UserForm> createState() => _UserFormState();
 }
 
-class _UserFormState extends State<UserForm> {
 
+class _UserFormState extends State<UserForm>
+{
   String title = "Criar Usuário";
+  
   // Controladores para os campos de texto
   TextEditingController controllerName = TextEditingController();
   TextEditingController controlleremail = TextEditingController();
@@ -35,7 +38,7 @@ class _UserFormState extends State<UserForm> {
         controllerPassword.text = userProvider.userSelected!.password;
 
         setState(() {
-          this.title = "Editar Usuário";
+          title = "Editar Usuário";
         });
       }
       

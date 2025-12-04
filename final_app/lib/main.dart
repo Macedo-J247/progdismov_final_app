@@ -20,14 +20,14 @@ class MainApp extends StatelessWidget
 	Widget build(BuildContext context)
 	{
 		return UserProvider(
-       child: MaterialApp(
-          home: UserForm(),
-            routes: {
-              "/create": (_) => UserForm(),
-              "/list": (_) => UserList(),
-              //lista de  usuarios
-            },
-       ),
-        );  // MaterialApp
+       		filho: MaterialApp(
+          		home: UserForm(),
+            	routes: {
+            		"/create": (_) => UserForm(),
+              		//lista de  usuarios
+              		"/list": (_) => UserList(),
+            	},
+       		),  // MaterialApp
+        );  // userProvider
 	}
 }
