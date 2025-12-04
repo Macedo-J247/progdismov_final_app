@@ -16,18 +16,33 @@ class MainApp extends StatelessWidget
 		super.key
 	});
 
-	@override
-	Widget build(BuildContext context)
-	{
-		return UserProvider(
-       		filho: MaterialApp(
-          		home: UserForm(),
-            	routes: {
-            		"/create": (_) => UserForm(),
-              		//lista de  usuarios
-              		"/list": (_) => UserList(),
-            	},
-       		),  // MaterialApp
-        );  // userProvider
-	}
+	// @override
+	// Widget build(BuildContext context)
+	// {
+	// 	return UserProvider(
+  //      		filho: MaterialApp(
+  //         		home: UserForm(),
+  //           	routes: {
+  //           		"/create": (_) => UserForm(),
+  //             		//lista de  usuarios
+  //             		"/list": (_) => UserList(),
+  //           	},
+  //      		),  // MaterialApp
+  //       );  // userProvider
+	// }
+
+  @override
+  Widget build(BuildContext context)
+  {
+    return UserProvider(
+      filho: MaterialApp(
+        debugShowCheckedModeBanner: false,
+        initialRoute: "/",
+        routes: {
+          "/create": (context) => const UserForm(),
+          "/list": (context) => const UserList(),
+        },
+      ),
+    );
+  }
 }
